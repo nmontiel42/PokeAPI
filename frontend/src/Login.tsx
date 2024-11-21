@@ -3,9 +3,10 @@ import { FaStar, FaBolt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 const Login: React.FC = () => {
-    const clientId = "Ov23liFul97uYbYi5vCd";
-    const redirectUri = "http://localhost:5174/callback";
-  
+    const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
+    const redirectUri = import.meta.env.VITE_GITHUB_REDIRECT_URI;
+
+
     const handleGithubLogin = () => {
       const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user`;
       window.location.href = githubAuthUrl;

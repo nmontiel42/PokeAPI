@@ -1,13 +1,13 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+require('dotenv').config();  // Load environment variables
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const CLIENT_ID = "Ov23liFul97uYbYi5vCd"; // Reemplaza con tu Client ID de GitHub
-const CLIENT_SECRET = "TU_CLIENT_SECRET"; // Coloca aquí tu Client Secret de GitHub
+const CLIENT_ID = process.env.CLIENT_ID;  // Get from .env file
 
 app.post("/oauth/github", async (req, res) => {
   const { code } = req.body;
@@ -18,7 +18,6 @@ app.post("/oauth/github", async (req, res) => {
       "https://github.com/login/oauth/access_token",
       {
         client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET,
         code,
       },
       {

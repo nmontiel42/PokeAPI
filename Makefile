@@ -6,3 +6,8 @@ all:
 clean:
 	fuser -k 5174/tcp || true
 	fuser -k 4000/tcp || true
+
+re:
+	fuser -k 5174/tcp || true
+	fuser -k 4000/tcp || true
+	npm run dev

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { usePollinationsImage } from "@pollinations/react";
+import LogoutButton from "./LogoutButton";
 
 const Dashboard: React.FC = () => {
     const token = localStorage.getItem("githubToken");
@@ -11,7 +12,7 @@ const Dashboard: React.FC = () => {
     const [habitat, setHabitat] = useState<string>("forest");
 
     const [generate, setGenerate] = useState<boolean>(false);
-    const [isLoading, setIsLoading] = useState<boolean>(false); // Estado para controlar el "loading"
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const description = `A Pokémon of type ${type} with a ${color} theme, whose evolution is ${evolution} with ${accessory}, that lives in the ${habitat} illustrated in a detailed and vibrant art style.`;
 
@@ -25,7 +26,7 @@ const Dashboard: React.FC = () => {
 
     const handleGenerate = () => {
         setGenerate(true);
-        setIsLoading(true);  // Activar el estado de "loading" cuando se hace clic
+        setIsLoading(true);  // Set loading to true
     };
 
     if (!token) {
@@ -37,18 +38,11 @@ const Dashboard: React.FC = () => {
     }
 
     return (
-        <div className="w-full h-screen bg-[url('frontend/img/pixelcut-export.jpeg')] bg-cover bg-center p-4">
+        <div className="w-full min-h-screen bg-[url('frontend/img/pixelcut-export.jpeg')] bg-cover bg-center p-4">
+
             <div className="flex justify-between items-center p-4">
                 <h1 className="text-3xl font-bold text-white">PokeAPI</h1>
-                <button
-                    onClick={() => {
-                        localStorage.removeItem("githubToken");  // Eliminar el token de localStorage
-                        window.location.href = "/";  // Redirigir al inicio de sesión
-                    }}
-                    className="px-2 py-1 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition-all focus:outline-none focus:ring-2 focus:ring-red-500"
-                >
-                    Logout
-                </button>
+                <LogoutButton />
             </div>
 
             <div className="space-y-6 max-w-md mx-auto">
@@ -89,19 +83,21 @@ const Dashboard: React.FC = () => {
 
                 {/* Imagen generada */}
                 {generate && (
-                    <div className="mt-4">
+                    <div className="mt-10 text-center">
                         {isLoading ? (
-                    <p className="text-center text-purple-100">Loading...</p> // Mensaje de carga
-                    ) : (
-                    imageUrl && (
-                        <img
-                        src={imageUrl}
-                        alt="Generated Pokémon"
-                        className="border border-purple-300 rounded-md w-full shadow-md"
-                        />
-                    )
-                    )}
-
+                            <div className="flex justify-center items-center">
+                                <div className="w-16 h-16 border-4 border-t-4 border-gray-300 border-solid rounded-full animate-spin border-t-purple-600"></div>
+                            </div>
+                        
+                        ) : imageUrl ? (
+                            <img
+                                src={imageUrl}
+                                alt="Generated Pokémon"
+                                className="mt-6 mx-auto border-4 border-blue-500 rounded-lg shadow-xl transition-all transform hover:scale-105"
+                            />
+                        ) : (
+                            <p className="text-gray-600">The image could not be generated. Please try again.</p>
+                        )}
                     </div>
                 )}
             </div>

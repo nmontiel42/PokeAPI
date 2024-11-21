@@ -83,23 +83,19 @@ const Dashboard: React.FC = () => {
 
                 {/* Imagen generada */}
                 {generate && (
-                    <div className="mt-10 text-center">
-                        {isLoading ? (
-                            <div className="flex justify-center items-center">
-                                <div className="w-16 h-16 border-4 border-t-4 border-gray-300 border-solid rounded-full animate-spin border-t-purple-600"></div>
-                            </div>
-                        
-                        ) : imageUrl ? (
-                            <img
-                                src={imageUrl}
-                                alt="Generated Pokémon"
-                                className="mt-6 mx-auto border-4 border-blue-500 rounded-lg shadow-xl transition-all transform hover:scale-105"
-                            />
-                        ) : (
-                            <p className="text-gray-600">The image could not be generated. Please try again.</p>
-                        )}
-                    </div>
-                )}
+                <div className="mt-10 text-center">
+                    <h2 className="text-2xl font-semibold text-red-500">Tu Pokémon generado</h2>
+                    {imageUrl ? (
+                        <img
+                            src={imageUrl}
+                            alt="Generated Pokémon"
+                            className="mt-6 mx-auto border border-gray-300 rounded-lg shadow-lg"
+                        />
+                    ) : (
+                        <p className="text-gray-600">Generando imagen...</p>
+                    )}
+                </div>
+            )}
             </div>
         </div>
     );

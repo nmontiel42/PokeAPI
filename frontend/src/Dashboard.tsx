@@ -52,7 +52,7 @@ const Dashboard: React.FC = () => {
     }
 
     return (
-        <div className="w-full min-h-screen bg-[url('frontend/img/pixelcut-export.jpeg')] bg-cover bg-center p-4">
+        <div className="w-full min-h-screen bg-[url('../img/pixelcut-export.jpeg')] bg-cover bg-center p-4">
             <div className="flex justify-between items-center p-4">
                 <h1 className="text-3xl font-bold text-white">PokeAPI</h1>
                 <LogoutButton />

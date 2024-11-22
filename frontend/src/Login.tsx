@@ -3,17 +3,26 @@ import { FaStar, FaBolt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 const Login: React.FC = () => {
+  const handleGithubLogin = () => {
+    console.log(import.meta.env);
     const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
     const redirectUri = import.meta.env.VITE_GITHUB_REDIRECT_URI;
 
+    console.log("Client ID:", clientId);
+    console.log("Redirect URI:", redirectUri);
 
-    const handleGithubLogin = () => {
-      const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user`;
-      window.location.href = githubAuthUrl;
-    };
+    if (!clientId || !redirectUri) {
+        console.error("GitHub client ID or redirect URI is missing!");
+        return;
+    }
+
+    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user`;
+    window.location.href = githubAuthUrl;
+};
+
   
     return (
-        <div className="bg-[url('frontend/img/pixelcut-export.jpeg')] bg-cover bg-center min-h-screen flex flex-col md:flex-row relative overflow-hidden">
+        <div className="bg-[url('../img/pixelcut-export.jpeg')] bg-cover bg-center min-h-screen flex flex-col md:flex-row relative overflow-hidden">
         <div className="w-full md:w-1/2 p-6 md:p-12 flex items-center justify-center relative z-10">
           <div className="text-center md:text-left text-white max-w-md">
             <div className="flex items-center justify-center md:justify-start gap-3 mb-8">

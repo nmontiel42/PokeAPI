@@ -1,13 +1,12 @@
 
 # Al ejecutar make tambien hara node server.js, ya que esta configurado en package.json
 all:
-	npm run dev
+	docker-compose up --build
 
 clean:
-	fuser -k 5174/tcp || true
-	fuser -k 4000/tcp || true
+	docker-compose down
+
 
 re:
-	fuser -k 5174/tcp || true
-	fuser -k 4000/tcp || true
-	npm run dev
+	docker-compose down
+	docker-compose up --build

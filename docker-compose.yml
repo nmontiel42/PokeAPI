@@ -1,0 +1,23 @@
+
+services:
+  backend:
+    build:
+      context: ./backend  # Apunta al directorio backend
+      dockerfile: Dockerfile  # Usa el Dockerfile que está dentro de /backend
+    ports:
+      - "4000:4000"
+    networks:
+      - mynetwork
+
+  frontend:
+    build:
+      context: ./frontend  # Apunta al directorio frontend
+      dockerfile: Dockerfile  # Usa el Dockerfile que está dentro de /frontend
+    ports:
+      - "5174:5174"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

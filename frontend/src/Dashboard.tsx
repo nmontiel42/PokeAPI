@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
                     { label: "Select a Type:", id: "type-select", value: type, setter: setType, options: ["steel", "water", "bug", "dragon", "electric", "ghost", "fire", "fairy", "ice", "fighting", "normal", "grass", "psychic", "rock", "dark", "ground", "flying"] },
                     { label: "Select a Color:", id: "color-select", value: color, setter: setColor, options: ["red", "blue", "green", "yellow", "pink", "brown", "lavender", "black", "white", "silver", "gold"] },
                     { label: "Select an Evolution Stage:", id: "evolution-select", value: evolution.toString(), setter: (value: string) => setEvolution(Number(value)), options: ["1", "2", "3"] },
-                    { label: "Select an Accessory:", id: "accessory-select", value: accessory, setter: setAccessory, options: ["none", "a hat", "glasses", "bow", "scarf", "cape", "necklace", "crown"] },
+                    { label: "Select an Accessory:", id: "accessory-select", value: accessory, setter: setAccessory, options: ["none", "hat", "glasses", "bow", "scarf", "cape", "necklace", "crown"] },
                     { label: "Pokémon Habitat:", id: "habitat-select", value: habitat, setter: setHabitat, options: ["forest", "mountain", "desert", "ocean"] }
                 ].map(({ label, id, value, setter, options }, idx) => (
                     <div key={idx}>

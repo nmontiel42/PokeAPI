@@ -20,3 +20,8 @@ Restarts everything: stops and removes containers and images, then rebuilds and 
 ```bash
 make re
 ```
+
+## **HOW TO USE IT**
+
+https://github.com/user-attachments/assets/6c5fa019-dc9b-4f84-88c6-88bb2f88dfdb
+

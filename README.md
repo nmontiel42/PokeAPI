@@ -1,7 +1,22 @@
-# HOW TO USE IT:
-### Make
-Build and lift the containers
-### Make clean
-stop and delete containers and images
-### Make re
-Stop and delete containers and image, then build and lift the containers again
+## 🛠️ **Makefile Commands**
+
+### `make`  
+Builds and starts the containers using 'docker-compose up --build'.  
+
+```bash
+make
+```
+
+### `make clean`
+Stops and removes containers and images.
+
+```bash
+make clean
+```
+
+### `make re`
+Restarts everything: stops and removes containers and images, then rebuilds and starts the containers.
+
+```bash
+make re
+```

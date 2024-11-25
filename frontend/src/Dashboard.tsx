@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
     const [evolution, setEvolution] = useState<number>(1);
     const [accessory, setAccessory] = useState<string>("glasses");
     const [habitat, setHabitat] = useState<string>("forest");
-    const [generate, setGenerate] = useState<boolean>(false);
+    const [, setGenerate] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [imageUrlState, setImageUrlState] = useState<string | null>(null);
     const [shareMenuVisible, setShareMenuVisible] = useState<boolean>(false);
